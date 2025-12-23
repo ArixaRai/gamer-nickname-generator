@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gamer Nickname Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h1>🎮 Gamer Nickname Generator</h1>
+  <p>Create cool names for Free Fire, PUBG, MLBB & COC</p>
+
+  <select id="game">
+    <option value="freefire">Free Fire</option>
+    <option value="pubg">PUBG</option>
+    <option value="mlbb">Mobile Legends</option>
+    <option value="coc">Clash of Clans</option>
+  </select>
+
+  <input type="text" id="baseName" placeholder="Enter your name (optional)">
+
+  <button onclick="generateName()">Generate Nickname</button>
+  <div id="result"></div>
+  <button id="copyBtn" onclick="copyNickname()">Copy Nickname</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

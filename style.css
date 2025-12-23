@@ -1,0 +1,58 @@
+body {
+  background: #0f172a;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #020617;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+select, input, button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+button {
+  background: linear-gradient(45deg, #22c55e, #06b6d4);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #22c55e, 0 0 20px #06b6d4;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 20px #22c55e, 0 0 40px #06b6d4;
+  transform: scale(1.05);
+}
+
+#copyBtn {
+  background: linear-gradient(45deg, #facc15, #f97316);
+  box-shadow: 0 0 10px #facc15, 0 0 20px #f97316;
+  margin-top: 5px;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #38bdf8;
+}
+
+@media (max-width: 500px) {
+  h1 { font-size: 18px; }
+  #result { font-size: 16px; }
+}

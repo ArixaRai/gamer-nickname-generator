@@ -11,13 +11,13 @@
 
 <div class="container">
 
-<div class="header">
-  <img src="logo.png" class="logo" alt="Logo">
-  <h1>Gamer Nickname Generator</h1>
-</div>
+  <!-- HEADER: Logo + Title -->
+  <div class="header">
+    <img src="logo.png" class="logo" alt="Logo">
+    <h1>Gamer Nickname Generator</h1>
+  </div>
+  <p>Free Fire • PUBG • MLBB • Clash of Clans</p>
 
-<p>Free Fire • PUBG • MLBB • Clash of Clans</p>
-  
   <!-- GAME SELECTOR -->
   <select id="gameSelect">
     <option value="ff">Free Fire</option>
@@ -25,6 +25,11 @@
     <option value="mlbb">Mobile Legends</option>
     <option value="coc">Clash of Clans</option>
   </select>
+
+  <!-- EMOJI TOGGLE -->
+  <label class="emoji-toggle">
+    <input type="checkbox" id="emojiToggle" checked> Include Emojis
+  </label>
 
   <!-- GAME ICONS -->
   <div class="games">
@@ -55,5 +60,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-

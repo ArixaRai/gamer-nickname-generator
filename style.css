@@ -1,65 +1,112 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-  background: #0f172a;
-  font-family: 'Press Start 2P', cursive;
-  color: white;
+  background: radial-gradient(circle at top, #020617, #000);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
   background: #020617;
   padding: 25px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-}
-
-select, input, button {
+  border-radius: 16px;
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
 }
 
+/* LOGO */
+.logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+h1 {
+  margin-bottom: 6px;
+}
+
+p {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* GAME ICONS */
+.games {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.games img {
+  width: 55px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* INPUT */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* SLIDER */
+.slider-label {
+  display: block;
+  margin: 15px 0 5px;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+/* BUTTON */
 button {
-  background: linear-gradient(45deg, #22c55e, #06b6d4);
-  color: white;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #00ffff, #0ea5e9);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 10px #22c55e, 0 0 20px #06b6d4;
-  transition: 0.3s ease;
+  color: #000;
 }
 
 button:hover {
-  box-shadow: 0 0 20px #22c55e, 0 0 40px #06b6d4;
-  transform: scale(1.05);
+  opacity: 0.9;
 }
 
-#copyBtn {
-  background: linear-gradient(45deg, #facc15, #f97316);
-  box-shadow: 0 0 10px #facc15, 0 0 20px #f97316;
-  margin-top: 5px;
-}
-
+/* RESULT */
 #result {
-  margin-top: 15px;
+  margin-top: 18px;
   font-size: 20px;
-  color: #38bdf8;
-}
-
-@media (max-width: 500px) {
-  h1 { font-size: 18px; }
-  #result { font-size: 16px; }
-
-}
-.logo {
-  width: 120px;              /* Size of the logo */
-  display: block;
-  margin: 0 auto 20px auto;  /* Center + space below */
-  border-radius: 10px;       /* Optional rounded corners */
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #00ffff;
 }

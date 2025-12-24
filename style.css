@@ -82,5 +82,15 @@ button {
   color: #00ffff;
   word-break: break-word;
 }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
 
-
+.header h1 {
+  font-size: 22px;
+  margin: 0;
+}

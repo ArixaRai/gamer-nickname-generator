@@ -55,4 +55,11 @@ button:hover {
 @media (max-width: 500px) {
   h1 { font-size: 18px; }
   #result { font-size: 16px; }
+
+}
+.logo {
+  width: 120px;              /* Size of the logo */
+  display: block;
+  margin: 0 auto 20px auto;  /* Center + space below */
+  border-radius: 10px;       /* Optional rounded corners */
 }

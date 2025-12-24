@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Gamer Nickname Generator</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <!-- LOGO -->
-    <img src="logo.png" alt="Site Logo" class="logo" />
+<div class="container">
 
-    <h1>🎮 Gamer Nickname Generator</h1>
-    <p>Create cool nicknames for Free Fire, PUBG, MLBB & Clash of Clans</p>
+  <!-- LOGO -->
+  <img src="logo.png" class="logo" alt="Logo">
 
-    <!-- GAME ICONS -->
-    <div class="games">
-      <img src="freefire.png" alt="Free Fire" />
-      <img src="pubg.png" alt="PUBG" />
-      <img src="mlbb.png" alt="Mobile Legends" />
-      <img src="coc.png" alt="Clash of Clans" />
-    </div>
+  <h1>🎮 Gamer Nickname Generator</h1>
+  <p>Free Fire • PUBG • MLBB • Clash of Clans</p>
 
-    <!-- NAME INPUT -->
-    <input
-      type="text"
-      id="nameInput"
-      placeholder="Enter your name"
-    />
+  <!-- GAME SELECTOR -->
+  <select id="gameSelect">
+    <option value="ff">Free Fire</option>
+    <option value="pubg">PUBG</option>
+    <option value="mlbb">Mobile Legends</option>
+    <option value="coc">Clash of Clans</option>
+  </select>
 
-    <!-- LENGTH SLIDER -->
-    <label class="slider-label">
-      Nickname Length: <span id="lengthValue">8</span>
-    </label>
-
-    <input
-      type="range"
-      min="4"
-      max="14"
-      value="8"
-      id="lengthSlider"
-    />
-
-    <!-- BUTTON -->
-    <button onclick="generateNickname()">Generate Nickname</button>
-
-    <!-- RESULT -->
-    <div id="result"></div>
+  <!-- GAME ICONS -->
+  <div class="games">
+    <img src="freefire.png" alt="Free Fire">
+    <img src="pubg.png" alt="PUBG">
+    <img src="mlbb.png" alt="MLBB">
+    <img src="coc.png" alt="COC">
   </div>
 
-  <script src="script.js"></script>
+  <!-- NAME INPUT -->
+  <input id="nameInput" type="text" placeholder="Enter your name">
+
+  <!-- LENGTH SLIDER -->
+  <label class="slider-label">
+    Nickname Length: <span id="lengthValue">8</span>
+  </label>
+  <input id="lengthSlider" type="range" min="4" max="14" value="8">
+
+  <!-- BUTTONS -->
+  <button id="generateBtn">Generate Nickname</button>
+  <button id="copyBtn">Copy Nickname</button>
+
+  <!-- RESULT -->
+  <div id="result">Your nickname will appear here</div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

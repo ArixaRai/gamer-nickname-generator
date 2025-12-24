@@ -12,6 +12,7 @@ function generateNickname() {
   const name = document.getElementById("nameInput").value.trim().toLowerCase();
   const game = document.getElementById("gameSelect").value;
   const length = parseInt(slider.value);
+  const emojiEnabled = document.getElementById("emojiToggle").checked;
 
   if (!name) {
     alert("Enter your name first");
@@ -20,7 +21,7 @@ function generateNickname() {
 
   const clean = name.replace(/[^a-z]/g, "");
 
-  // GAME STYLES
+  // Game-specific styles
   const styles = {
     ff: ["x", "dark", "ff", "op"],
     pubg: ["killer", "sniper", "pubg", "pro"],
@@ -28,7 +29,7 @@ function generateNickname() {
     coc: ["chief", "clan", "war", "coc"]
   };
 
-  // GAME EMOJIS
+  // Game-specific emojis
   const emojis = {
     ff: ["🔥", "💀", "⚡"],
     pubg: ["🔫", "🎯", "💣"],
@@ -47,10 +48,10 @@ function generateNickname() {
 
   // Adjust length BEFORE emoji
   if (nickname.length > length) nickname = nickname.slice(0, length);
-  while (nickname.length < length - 2) nickname += "x";
+  while (nickname.length < length - (emojiEnabled ? 2 : 0)) nickname += "x";
 
-  // Add emoji at the end (clean & readable)
-  nickname += pick(emojis[game]);
+  // Add emoji if enabled
+  if (emojiEnabled) nickname += pick(emojis[game]);
 
   result.textContent = nickname;
 }

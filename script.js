@@ -1,47 +1,62 @@
-const lengthSlider = document.getElementById("lengthSlider");
+const slider = document.getElementById("lengthSlider");
 const lengthValue = document.getElementById("lengthValue");
+const result = document.getElementById("result");
 
-lengthValue.textContent = lengthSlider.value;
+lengthValue.textContent = slider.value;
+slider.oninput = () => lengthValue.textContent = slider.value;
 
-lengthSlider.addEventListener("input", () => {
-  lengthValue.textContent = lengthSlider.value;
-});
+document.getElementById("generateBtn").onclick = generateNickname;
+document.getElementById("copyBtn").onclick = copyNickname;
 
 function generateNickname() {
-  const nameInput = document.getElementById("nameInput").value.trim();
-  const length = parseInt(lengthSlider.value);
+  const name = document.getElementById("nameInput").value.trim().toLowerCase();
+  const game = document.getElementById("gameSelect").value;
+  const length = parseInt(slider.value);
 
-  if (!nameInput) {
-    alert("Please enter your name!");
+  if (!name) {
+    alert("Enter your name first");
     return;
   }
 
-  const cleanName = nameInput
-    .toLowerCase()
-    .replace(/[^a-z]/g, "");
+  const clean = name.replace(/[^a-z]/g, "");
 
-  const prefixes = ["", "x", "pro", "dark", "neo", "its"];
-  const suffixes = ["", "x", "z", "yt", "op", "ff", "ml"];
-  const symbols = ["", "", "ツ", "彡", "乂"];
+  // GAME STYLES
+  const styles = {
+    ff: ["x", "dark", "ff", "op"],
+    pubg: ["killer", "sniper", "pubg", "pro"],
+    mlbb: ["hero", "legend", "ml", "king"],
+    coc: ["chief", "clan", "war", "coc"]
+  };
 
-  let base =
-    prefixes[Math.floor(Math.random() * prefixes.length)] +
-    cleanName +
-    suffixes[Math.floor(Math.random() * suffixes.length)];
+  // GAME EMOJIS
+  const emojis = {
+    ff: ["🔥", "💀", "⚡"],
+    pubg: ["🔫", "🎯", "💣"],
+    mlbb: ["⚔️", "🛡️", "👑"],
+    coc: ["🏰", "🪓", "🔥"]
+  };
+
+  const symbols = ["", "ツ", "彡", "乂"];
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
 
   let nickname =
-    symbols[Math.floor(Math.random() * symbols.length)] +
-    base +
-    symbols[Math.floor(Math.random() * symbols.length)];
+    pick(symbols) +
+    pick(styles[game]) +
+    clean +
+    pick(symbols);
 
-  // Adjust to slider length
-  if (nickname.length > length) {
-    nickname = nickname.slice(0, length);
-  }
+  // Adjust length BEFORE emoji
+  if (nickname.length > length) nickname = nickname.slice(0, length);
+  while (nickname.length < length - 2) nickname += "x";
 
-  if (nickname.length < length) {
-    nickname += "x".repeat(length - nickname.length);
-  }
+  // Add emoji at the end (clean & readable)
+  nickname += pick(emojis[game]);
 
-  document.getElementById("result").textContent = nickname;
+  result.textContent = nickname;
+}
+
+function copyNickname() {
+  if (!result.textContent) return;
+  navigator.clipboard.writeText(result.textContent);
+  alert("Nickname copied!");
 }

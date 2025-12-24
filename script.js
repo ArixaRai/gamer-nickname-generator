@@ -1,33 +1,47 @@
-const symbols = ["×","ツ","亗","么","々","彡","★","☠","🔥","💀","⚡"];
-const prefixes = ["Dark","Pro","Ghost","King","Shadow","Fire"];
-const suffixes = ["X","OP","YT","777","69","99"];
+const lengthSlider = document.getElementById("lengthSlider");
+const lengthValue = document.getElementById("lengthValue");
 
-function generateName() {
-  let base = document.getElementById("baseName").value;
-  let game = document.getElementById("game").value;
+lengthValue.textContent = lengthSlider.value;
 
-  if(base === "") base = prefixes[Math.floor(Math.random()*prefixes.length)];
+lengthSlider.addEventListener("input", () => {
+  lengthValue.textContent = lengthSlider.value;
+});
 
-  let symbol = symbols[Math.floor(Math.random()*symbols.length)];
-  let suffix = suffixes[Math.floor(Math.random()*suffixes.length)];
-  let number = Math.floor(Math.random()*900 + 100);
+function generateNickname() {
+  const nameInput = document.getElementById("nameInput").value.trim();
+  const length = parseInt(lengthSlider.value);
 
-  let nickname = "";
-  if(game === "freefire") nickname = `${symbol}${base}${suffix}${number}`;
-  else if(game === "pubg") nickname = `${base}${symbol}${number}`;
-  else if(game === "mlbb") nickname = `${base}${suffix}${symbol}`;
-  else if(game === "coc") nickname = `${symbol}${base}_${number}`;
-
-  document.getElementById("result").innerText = nickname;
-}
-
-function copyNickname() {
-  const nickname = document.getElementById("result").innerText;
-  if(nickname){
-    navigator.clipboard.writeText(nickname).then(() => {
-      alert("✅ Nickname copied: " + nickname);
-    });
-  } else {
-    alert("⚠️ Generate a nickname first!");
+  if (!nameInput) {
+    alert("Please enter your name!");
+    return;
   }
+
+  const cleanName = nameInput
+    .toLowerCase()
+    .replace(/[^a-z]/g, "");
+
+  const prefixes = ["", "x", "pro", "dark", "neo", "its"];
+  const suffixes = ["", "x", "z", "yt", "op", "ff", "ml"];
+  const symbols = ["", "", "ツ", "彡", "乂"];
+
+  let base =
+    prefixes[Math.floor(Math.random() * prefixes.length)] +
+    cleanName +
+    suffixes[Math.floor(Math.random() * suffixes.length)];
+
+  let nickname =
+    symbols[Math.floor(Math.random() * symbols.length)] +
+    base +
+    symbols[Math.floor(Math.random() * symbols.length)];
+
+  // Adjust to slider length
+  if (nickname.length > length) {
+    nickname = nickname.slice(0, length);
+  }
+
+  if (nickname.length < length) {
+    nickname += "x".repeat(length - nickname.length);
+  }
+
+  document.getElementById("result").textContent = nickname;
 }

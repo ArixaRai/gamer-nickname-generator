@@ -23,18 +23,18 @@ function generateNickname() {
 
   // Game-specific styles
   const styles = {
-    ff: ["x", "dark", "ff", "op"],
-    pubg: ["killer", "sniper", "pubg", "pro"],
-    mlbb: ["hero", "legend", "ml", "king"],
-    coc: ["chief", "clan", "war", "coc"]
+    ff: ["x", "dark", "ff", "op", "killer", "sniper", "pro" , "hunter", "yourdad", "ninja", "hacker", "don'tMess", "blade", "master", "error", "terror", "RunOrDie", "death", "blademaster", "AK"],
+    pubg: ["killer", "sniper", "pubg", "pro", "legend", "x", "dark", "hunter", "yourdad", "ninja", "hacker", "don'tMess", "blade", "master", "error", "terror", "RunOrDie", "death", "blademaster", "AK"],
+    mlbb: ["hero", "legend", "ml", "king", "knight", "dark", "hunter", "yourdad", "ninja", "hacker", "don'tMess", "blade", "master", "error", "terror", "RunOrDie", "death", "blademaster"],
+    coc: ["chief", "clan", "war", "coc", "x", "hunter", "yourdad", "blade", "master", "death", "blademaster"],
   };
 
   // Game-specific emojis
   const emojis = {
-    ff: ["🔥", "💀", "⚡"],
-    pubg: ["🔫", "🎯", "💣"],
-    mlbb: ["⚔️", "🛡️", "👑"],
-    coc: ["🏰", "🪓", "🔥"]
+    ff: ["🔥", "💀", "⚡","⚔️", "🛡️", "☠", "👿", "🏴‍☠️", "🏴", "🏳", "❌", "💯"],
+    pubg: ["🎯", "💣","🔥", "💀", "❌", "💯", "☠", "🏴‍☠️"],
+    mlbb: ["⚔️", "🛡️", "👑", "❌", "💯", "☠", "🏴‍☠️", "🏴", "🏳"],
+    coc: ["🏰", "🪓", "🔥","⚔️", "🛡️", "👑", "🎯", "💣", "💀", "⛏", "⚒", "🛠", "🔧", "🔨", "🏴‍☠️", "🏴", "🏳"]
   };
 
   const symbols = ["", "ツ", "彡", "乂"];
@@ -61,3 +61,4 @@ function copyNickname() {
   navigator.clipboard.writeText(result.textContent);
   alert("Nickname copied!");
 }
+
